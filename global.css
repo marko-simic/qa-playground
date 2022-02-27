@@ -1195,6 +1195,10 @@ menu-toggler {
   }
 }
 
+.idea-margin {
+  margin-inline: 10vh;
+}
+
 .snippet-list-link {
   text-decoration: none;
   margin-bottom: 10px;
@@ -1627,6 +1631,10 @@ video-player {
   .content-main {
     flex-direction: column-reverse;
     flex-wrap: wrap;
+  }
+
+  .idea-margin {
+    margin-inline: 1vh;
   }
 
   .content-article,
