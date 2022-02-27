@@ -79,8 +79,16 @@
   --font-code: "Lucida Console", monospace;
   --font-size: 20px;
   --max-width-bp: 768px;
-  --orange-pink: linear-gradient(to bottom right, var(--orange-light), var(--orange-dark) 85%);
-  --green-grad: linear-gradient(to bottom right, var(--green-light), var(--green-dark) 85%);
+  --orange-pink: linear-gradient(
+    to bottom right,
+    var(--orange-light),
+    var(--orange-dark) 85%
+  );
+  --green-grad: linear-gradient(
+    to bottom right,
+    var(--green-light),
+    var(--green-dark) 85%
+  );
   --background: var(--gray6);
   --background-opacity: rgba(18, 24, 27, 0.58);
   --text-color: var(--gray2);
@@ -994,11 +1002,13 @@ a.item {
 
 .logo {
   /* align-self: center;
-  justify-self: center;
-  width: var(--nav-width); */
-  padding-left: 40px;
-  max-width: 300px;
-  transition: opacity 0.3s;
+  justify-self: center; */
+  /* width: 10rem; */
+
+  padding-left: 10px;
+  /* max-width: 300px; */
+  /* transition: opacity 0.3s; */
+  text-shadow: 4px 4px 4px rgba(10, 10, 10, 0.1);
 }
 
 .logo svg {
@@ -1067,6 +1077,11 @@ a.item {
 
   .topnav-icons .item {
     margin: 0 0.75em;
+  }
+
+  .logo {
+    /* font-size: 1rem; */
+    margin-left: 10px;
   }
 }
 
@@ -1867,6 +1882,13 @@ video-player {
   .pagination {
     flex-wrap: wrap;
     padding: 0;
+  }
+  .hero-content {
+    padding: 0;
+  }
+
+  .gradient-text {
+    display: block;
   }
 }
 
