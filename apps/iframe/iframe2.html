@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>the second level iframe</title>
+    <link rel="stylesheet" href="../../global.css" />
+    <style>
+      fieldset {
+        width: 90%;
+        height: 150px;
+        width: 150px;
+        border: 1px solid #00d8ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #00d8ff;
+        font-family: sans-serif;
+        padding: 50px;
+      }
+
+      button {
+        background: #ffcb2b;
+        color: #12181a;
+        height: 50px;
+        width: 150px;
+        cursor: pointer;
+      }
+
+      #msg {
+        color: #fa8142;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-center" style="margin-top: 5vh">
+      <fieldset style="flex-direction: column">
+        <legend>Second Level Iframe</legend>
+        <a
+          class="btn btn-green-outline"
+          href="#"
+          onclick="document.getElementById('msg').style.display = 'block'"
+          >Click Me</a
+        >
+        <hr />
+        <div>
+          <p id="msg">Button Clicked</p>
+        </div>
+      </fieldset>
+    </div>
+  </body>
+</html>
