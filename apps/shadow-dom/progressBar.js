@@ -91,9 +91,11 @@ class ProgressBar extends HTMLElement {
     btn.classList.add("btn-green-outline");
 
     this.shadowRoot.append(style, container, wrapper);
-
+    this.shadowRoot.sty;
     btn.onclick = function () {
       fill.style.width = `95%`;
+
+      boost();
     };
   }
 

@@ -106,6 +106,14 @@
       </div>
     </main>
 
+    <script>
+      function boost() {
+        const bar = document.querySelector("progress-bar");
+        setTimeout(function () {
+          bar.setAttribute("percent", 95);
+        }, 6000);
+      }
+    </script>
     <script src="progressBar.js"></script>
   </body>
 </html>
