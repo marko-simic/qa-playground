@@ -2,15 +2,15 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <title>Test Tags Input Box</title>
-    <meta name="description" content="Add and remove tags and assert tag's presence and count" />
+    <title>Test Onboarding Modal Flow</title>
     <link rel="stylesheet" href="../../global.css" />
     <link rel="stylesheet" href="style.css" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/thinline.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
   </head>
-  <body class="dark-theme">
+  <body>
     <nav class="topnav" style="top: 0px">
       <div class="" style="padding: 0">
         <a href="/" class="item logo" style="opacity: 1">
@@ -82,11 +82,7 @@
       </div>
 
       <div class="topnav-icons">
-        <a
-          class="item"
-          href="https://github.com/marko-simic/qa-playground-tests/blob/main/tests/tags.spec.js"
-          style="flex-direction: row; margin-right: 30px"
-        >
+        <a class="item" href="/" style="flex-direction: row; margin-right: 30px">
           <div class="" style="display: flex; padding-right: 5px; padding-bottom: 2px">
             <img src="../../playwright-logo.svg" alt="Playwright logo" />
           </div>
@@ -95,36 +91,21 @@
       </div>
     </nav>
 
-    <main role="main">
-      <div class="light-theme wrapper">
-        <div class="title">
-          <img src="tag.svg" alt="icon" />
-          <h2>Tags</h2>
-        </div>
-        <div class="content">
-          <p>Press enter or add a comma after each tag</p>
-          <ul>
-            <input type="text" spellcheck="false" />
-          </ul>
-        </div>
-        <div class="details" style="color: black">
-          <p><span>10</span> tags are remaining</p>
-          <button>Remove All</button>
-        </div>
-      </div>
+    <input type="checkbox" id="active" />
+    <label for="active" class="menu-btn"><i class="fas fa-bars"></i></label>
+    <div class="wrapper">
+      <ul>
+        <li><a href="#">Welcome on board!</a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="title">Application successfully launched! 🚀</div>
+    </div>
 
-      <hr style="background-color: aliceblue" />
-    </main>
-
-    <footer style="margin-top: auto">
-      <div class="text-sm">
-        All the credit for this mini-app goes to
-        <a href="https://www.codingnepalweb.com/tags-input-box-html-javascript/" target="_blank"
-          >CodingNepal
-        </a>
-      </div>
-    </footer>
-
-    <script src="script.js"></script>
+    <script>
+      if (!Math.round(Math.random())) {
+        document.getElementById("active").checked = true;
+      }
+    </script>
   </body>
 </html>
