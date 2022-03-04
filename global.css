@@ -79,16 +79,8 @@
   --font-code: "Lucida Console", monospace;
   --font-size: 20px;
   --max-width-bp: 768px;
-  --orange-pink: linear-gradient(
-    to bottom right,
-    var(--orange-light),
-    var(--orange-dark) 85%
-  );
-  --green-grad: linear-gradient(
-    to bottom right,
-    var(--green-light),
-    var(--green-dark) 85%
-  );
+  --orange-pink: linear-gradient(to bottom right, var(--orange-light), var(--orange-dark) 85%);
+  --green-grad: linear-gradient(to bottom right, var(--green-light), var(--green-dark) 85%);
   --background: var(--gray6);
   --background-opacity: rgba(18, 24, 27, 0.58);
   --text-color: var(--gray2);
@@ -941,6 +933,7 @@ pre.highlight {
   box-shadow: var(--nav-shadow);
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   width: 100%;
   z-index: 999;
   transition: top 0.3s ease;
