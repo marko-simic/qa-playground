@@ -1644,6 +1644,10 @@ video-player {
   .content-article {
     margin: 0;
   }
+
+  .tests {
+    display: none;
+  }
 }
 
 .chapter-nav {
