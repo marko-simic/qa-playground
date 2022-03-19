@@ -6,7 +6,6 @@
 }
 body {
   height: 100vh;
-  background: linear-gradient(45deg, #0076ec, #42a1ff);
 }
 .container {
   width: 80vw;
@@ -25,7 +24,7 @@ body {
   display: block;
   margin: auto;
 }
-#location-details {
+#location-info {
   font-size: 1.75em;
   text-align: center;
   margin: 1em 0 1.7em 0;
@@ -35,7 +34,7 @@ body {
 .container button {
   display: block;
   margin: auto;
-  background-color: #42a1ff;
+  background-color: #fa8142;
   color: #ffffff;
   border: none;
   font-size: 1.25em;
