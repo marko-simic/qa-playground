@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../global.css" />
+    <title>Test changeable iframe</title>
+    <meta
+      name="description"
+      content="Assert that 53 seconds remain until the end of the countdown and a message that the journey is over"
+    />
+  </head>
+  <body>
+    <nav class="topnav" style="top: 0px">
+      <div class="" style="padding: 0">
+        <a href="/" class="item logo" style="opacity: 1">
+          <h1><span class="gradient-text">QA Playground</span></h1>
+        </a>
+      </div>
+
+      <div class="topnav-links flex-center hide-sm">
+        <a href="/#apps" class="item item-text" aria-label="full courses">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 512 512"
+            width="512"
+            height="512"
+          >
+            <linearGradient
+              id="a"
+              gradientUnits="userSpaceOnUse"
+              x1="130.5"
+              x2="130.5"
+              y1="12"
+              y2="490.602"
+            >
+              <stop offset="0" stop-color="#00efd1" />
+              <stop offset="1" stop-color="#00acea" />
+            </linearGradient>
+            <linearGradient id="b" x1="255.5" x2="255.5" xlink:href="#a" y1="12" y2="490.602" />
+            <linearGradient id="c" x1="380.5" x2="380.5" xlink:href="#a" y1="12" y2="490.602" />
+            <path
+              d="m172 76h-83a10 10 0 0 0 -10 10v83a10 10 0 0 0 10 10h83a10 10 0 0 0 10-10v-83a10 10 0 0 0 -10-10zm-9 84h-64v-64h64z"
+              fill="currentColor"
+            />
+            <path
+              d="m297 76h-83a10 10 0 0 0 -10 10v83a10 10 0 0 0 10 10h83a10 10 0 0 0 10-10v-83a10 10 0 0 0 -10-10zm-9 84h-64v-64h64z"
+              fill="currentColor"
+            />
+            <path
+              d="m172 202h-83a10 10 0 0 0 -10 10v83a10 10 0 0 0 10 10h83a10 10 0 0 0 10-10v-83a10 10 0 0 0 -10-10zm-9 83h-64v-63h64z"
+              fill="currentColor"
+            />
+            <path
+              d="m297 202h-83a10 10 0 0 0 -10 10v83a10 10 0 0 0 10 10h83a10 10 0 0 0 10-10v-83a10 10 0 0 0 -10-10zm-9 83h-64v-63h64z"
+              fill="currentColor"
+            />
+            <path
+              d="m422 76h-83a10 10 0 0 0 -10 10v83a10 10 0 0 0 10 10h83a10 10 0 0 0 10-10v-83a10 10 0 0 0 -10-10zm-9 84h-64v-64h64z"
+              fill="currentColor"
+            />
+            <path
+              d="m422 202h-83a10 10 0 0 0 -10 10v83a10 10 0 0 0 10 10h83a10 10 0 0 0 10-10v-83a10 10 0 0 0 -10-10zm-9 83h-64v-63h64z"
+              fill="currentColor"
+            />
+            <path
+              d="m172 332h-83a10 10 0 0 0 -10 10v83a10 10 0 0 0 10 10h83a10 10 0 0 0 10-10v-83a10 10 0 0 0 -10-10zm-9 84h-64v-64h64z"
+              fill="currentColor"
+            />
+            <path
+              d="m297 332h-83a10 10 0 0 0 -10 10v83a10 10 0 0 0 10 10h83a10 10 0 0 0 10-10v-83a10 10 0 0 0 -10-10zm-9 84h-64v-64h64z"
+              fill="currentColor"
+            />
+            <path
+              d="m422 332h-83a10 10 0 0 0 -10 10v83a10 10 0 0 0 10 10h83a10 10 0 0 0 10-10v-83a10 10 0 0 0 -10-10zm-9 84h-64v-64h64z"
+              fill="currentColor"
+            />
+          </svg>
+          Apps
+        </a>
+      </div>
+
+      <div class="topnav-icons">
+        <a
+          class="item"
+          href="https://github.com/marko-simic/qa-playground-tests/blob/main/tests/iframe.spec.js"
+          style="flex-direction: row; margin-right: 30px"
+        >
+          <div class="" style="display: flex; padding-right: 5px; padding-bottom: 2px">
+            <img src="../../playwright-logo.svg" alt="Playwright logo" />
+          </div>
+          <b class="">View Test Suite</b>
+        </a>
+      </div>
+    </nav>
+
+    <main role="main">
+      <div class="flex-center" style="margin-top: 13vh">
+        <iframe width="350" height="420" src="iframe1.html" id="frame1" name="frame1"></iframe>
+      </div>
+    </main>
+  </body>
+</html>
