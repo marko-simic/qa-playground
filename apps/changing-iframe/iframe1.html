@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>First iframe - countdown timer</title>
+    <style>
+      fieldset {
+        width: 90%;
+        height: 380px;
+        width: 300px;
+        border: 1px solid #ffcb2b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffcb2b;
+        font-family: sans-serif;
+        padding: 10x;
+      }
+
+      button {
+        background: #ffcb2b;
+        color: #12181a;
+        height: 50px;
+        width: 150px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <fieldset>
+        <legend>First Iframe</legend>
+        <div class="flex-center">
+          <div>Registration closes in <span id="time">01:00</span> minutes!</div>
+        </div>
+      </fieldset>
+    </div>
+
+    <script>
+      const url = "/apps/changing-iframe/iframe2.html";
+
+      function startTimer(duration, display) {
+        var timer = duration,
+          minutes,
+          seconds;
+        setInterval(function () {
+          minutes = parseInt(timer / 60, 10);
+          seconds = parseInt(timer % 60, 10);
+
+          minutes = minutes < 10 ? "0" + minutes : minutes;
+          seconds = seconds < 10 ? "0" + seconds : seconds;
+
+          display.textContent = minutes + ":" + seconds;
+
+          if (seconds == 51) {
+            window.location.replace(url);
+          }
+
+          if (--timer < 0) {
+            timer = duration;
+          }
+        }, 1000);
+      }
+
+      window.onload = function () {
+        var oneMinute = 60 * 1,
+          display = document.querySelector("#time");
+        startTimer(oneMinute, display);
+      };
+    </script>
+  </body>
+</html>
