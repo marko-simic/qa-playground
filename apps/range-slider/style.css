@@ -131,6 +131,26 @@ body.like .thumb span {
   background: linear-gradient(#fed151, #de981f);
 }
 
+#feedback {
+  display: none;
+  margin-top: 2rem;
+  background-color: #fa8142;
+  color: #ffffff;
+  border: none;
+  font-size: 1em;
+  padding: 1em 2.5em;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+
+#ty-msg {
+  display: none;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  color: black;
+}
+
 footer {
   color: black;
 }

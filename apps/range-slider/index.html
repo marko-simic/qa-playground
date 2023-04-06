@@ -6,7 +6,7 @@
     <title>Test Emoji Rating Range Slider</title>
     <meta
       name="description"
-      content="Set each available rate value and assert by image, color, and number"
+      content="Set slider value to 50 and submit feedback by clicking on the button"
     />
 
     <link rel="stylesheet" href="../../global.css" />
@@ -118,6 +118,9 @@
         <div class="progress-bar"></div>
         <input type="range" min="0" value="0" max="100" />
       </div>
+      <p id="ty-msg">Thank you for your feedback!</p>
+
+      <button id="feedback">Send Feedback</button>
     </div>
     <script>
       const body = document.querySelector("body");
@@ -125,6 +128,8 @@
       const input = document.querySelector("input");
       const bar = document.querySelector(".progress-bar");
       const thumb = document.querySelector(".thumb");
+      const feedbackBtn = document.getElementById("feedback");
+      const tyMsg = document.getElementById("ty-msg");
       input.oninput = () => {
         let sliderValue = input.value;
         thumb.style.left = sliderValue + "%";
@@ -134,26 +139,39 @@
           body.classList.add("angry");
           body.classList.remove("confuse");
           body.classList.remove("like");
+          feedbackBtn.style = "display: none;";
         }
         if (sliderValue >= 20) {
           emoji.style.marginTop = "-140px";
           body.classList.add("confuse");
           body.classList.remove("angry");
           body.classList.remove("like");
+          feedbackBtn.style = "display: none;";
         }
         if (sliderValue >= 40) {
           emoji.style.marginTop = "-280px";
+          feedbackBtn.style = "display: block;";
         }
         if (sliderValue >= 60) {
           emoji.style.marginTop = "-420px";
           body.classList.add("like");
           body.classList.remove("confuse");
           body.classList.remove("angry");
+          feedbackBtn.style = "display: none;";
         }
         if (sliderValue >= 80) {
           emoji.style.marginTop = "-560px";
+          feedbackBtn.style = "display: none;";
         }
       };
+
+      feedbackBtn.addEventListener("click", (event) => {
+        alert("radi");
+        document.querySelector(".section").style = "display: none;";
+        document.querySelector(".slider").style = "display: none;";
+        feedbackBtn.style = "display: none;";
+        tyMsg.style = "display: block;";
+      });
     </script>
 
     <footer>
