@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Test JIRA-like Board</title>
+    <meta
+      name="description"
+      content="Create, drag and drop, filter and delete issues on a JIRA-like kanban board and assert their state across columns"
+    />
+    <link rel="stylesheet" href="../../global.css" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="dark-theme">
+    <nav class="topnav" style="top: 0px">
+      <div class="" style="padding: 0">
+        <a href="/" class="item logo" style="opacity: 1">
+          <h1><span class="gradient-text">QA Playground</span></h1>
+        </a>
+      </div>
+
+      <div class="topnav-links flex-center hide-sm">
+        <a href="/#apps" class="item item-text" aria-label="full courses">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 512 512"
+            width="512"
+            height="512"
+          >
+            <linearGradient
+              id="a"
+              gradientUnits="userSpaceOnUse"
+              x1="130.5"
+              x2="130.5"
+              y1="12"
+              y2="490.602"
+            >
+              <stop offset="0" stop-color="#00efd1" />
+              <stop offset="1" stop-color="#00acea" />
+            </linearGradient>
+            <linearGradient id="b" x1="255.5" x2="255.5" xlink:href="#a" y1="12" y2="490.602" />
+            <linearGradient id="c" x1="380.5" x2="380.5" xlink:href="#a" y1="12" y2="490.602" />
+            <path
+              d="m172 76h-83a10 10 0 0 0 -10 10v83a10 10 0 0 0 10 10h83a10 10 0 0 0 10-10v-83a10 10 0 0 0 -10-10zm-9 84h-64v-64h64z"
+              fill="currentColor"
+            />
+            <path
+              d="m297 76h-83a10 10 0 0 0 -10 10v83a10 10 0 0 0 10 10h83a10 10 0 0 0 10-10v-83a10 10 0 0 0 -10-10zm-9 84h-64v-64h64z"
+              fill="currentColor"
+            />
+            <path
+              d="m172 202h-83a10 10 0 0 0 -10 10v83a10 10 0 0 0 10 10h83a10 10 0 0 0 10-10v-83a10 10 0 0 0 -10-10zm-9 83h-64v-63h64z"
+              fill="currentColor"
+            />
+            <path
+              d="m297 202h-83a10 10 0 0 0 -10 10v83a10 10 0 0 0 10 10h83a10 10 0 0 0 10-10v-83a10 10 0 0 0 -10-10zm-9 83h-64v-63h64z"
+              fill="currentColor"
+            />
+            <path
+              d="m422 76h-83a10 10 0 0 0 -10 10v83a10 10 0 0 0 10 10h83a10 10 0 0 0 10-10v-83a10 10 0 0 0 -10-10zm-9 84h-64v-64h64z"
+              fill="currentColor"
+            />
+            <path
+              d="m422 202h-83a10 10 0 0 0 -10 10v83a10 10 0 0 0 10 10h83a10 10 0 0 0 10-10v-83a10 10 0 0 0 -10-10zm-9 83h-64v-63h64z"
+              fill="currentColor"
+            />
+            <path
+              d="m172 332h-83a10 10 0 0 0 -10 10v83a10 10 0 0 0 10 10h83a10 10 0 0 0 10-10v-83a10 10 0 0 0 -10-10zm-9 84h-64v-64h64z"
+              fill="currentColor"
+            />
+            <path
+              d="m297 332h-83a10 10 0 0 0 -10 10v83a10 10 0 0 0 10 10h83a10 10 0 0 0 10-10v-83a10 10 0 0 0 -10-10zm-9 84h-64v-64h64z"
+              fill="currentColor"
+            />
+            <path
+              d="m422 332h-83a10 10 0 0 0 -10 10v83a10 10 0 0 0 10 10h83a10 10 0 0 0 10-10v-83a10 10 0 0 0 -10-10zm-9 84h-64v-64h64z"
+              fill="currentColor"
+            />
+          </svg>
+          Apps
+        </a>
+      </div>
+
+      <div class="topnav-icons">
+        <a
+          class="item"
+          href="https://github.com/marko-simic/qa-playground-tests/blob/main/tests/jira-board.spec.js"
+          style="flex-direction: row; margin-right: 30px"
+        >
+          <div class="" style="display: flex; padding-right: 5px; padding-bottom: 2px">
+            <img src="../../playwright-logo.svg" alt="Playwright logo" />
+          </div>
+          <b class="">View Test Suite</b>
+        </a>
+      </div>
+    </nav>
+
+    <main role="main">
+      <div class="board-header">
+        <div class="board-title">
+          <h2>QA Project Board</h2>
+          <span id="total-count" class="total-count"></span>
+        </div>
+        <div class="board-controls">
+          <select id="filter-assignee" class="filter-select" aria-label="Filter by assignee">
+            <option value="">All Assignees</option>
+            <option value="Alice">Alice</option>
+            <option value="Bob">Bob</option>
+            <option value="Carol">Carol</option>
+          </select>
+          <select id="filter-priority" class="filter-select" aria-label="Filter by priority">
+            <option value="">All Priorities</option>
+            <option value="critical">Critical</option>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+          <button id="create-btn" class="btn-create">+ Create Issue</button>
+        </div>
+      </div>
+
+      <div class="board" id="board">
+        <div class="column" id="col-todo">
+          <div class="column-header">
+            <span class="column-title">To Do</span>
+            <span class="column-count" id="count-todo">0</span>
+          </div>
+          <div class="column-body" id="body-todo" data-column="todo"></div>
+        </div>
+
+        <div class="column" id="col-inprogress">
+          <div class="column-header">
+            <span class="column-title">In Progress</span>
+            <span class="column-count" id="count-inprogress">0</span>
+          </div>
+          <div class="column-body" id="body-inprogress" data-column="inprogress"></div>
+        </div>
+
+        <div class="column" id="col-inreview">
+          <div class="column-header">
+            <span class="column-title">In Review</span>
+            <span class="column-count" id="count-inreview">0</span>
+          </div>
+          <div class="column-body" id="body-inreview" data-column="inreview"></div>
+        </div>
+
+        <div class="column" id="col-done">
+          <div class="column-header">
+            <span class="column-title">Done</span>
+            <span class="column-count" id="count-done">0</span>
+          </div>
+          <div class="column-body" id="body-done" data-column="done"></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Create Issue Modal -->
+    <div id="create-modal" class="dialog-overlay" hidden>
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="create-modal-title">
+        <div class="modal-header">
+          <h3 id="create-modal-title">Create Issue</h3>
+          <button class="modal-close" id="create-close" aria-label="Close">&times;</button>
+        </div>
+        <form id="create-form" novalidate>
+          <div class="field">
+            <label for="new-title">Title <span class="required">*</span></label>
+            <input type="text" id="new-title" placeholder="Issue title" autocomplete="off" />
+            <span class="field-error" id="new-title-error" role="alert"></span>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="new-type">Type</label>
+              <select id="new-type">
+                <option value="task">Task</option>
+                <option value="bug">Bug</option>
+                <option value="story">Story</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="new-priority">Priority</label>
+              <select id="new-priority">
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+                <option value="high">High</option>
+                <option value="critical">Critical</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="new-assignee">Assignee</label>
+            <select id="new-assignee">
+              <option value="Unassigned">Unassigned</option>
+              <option value="Alice">Alice</option>
+              <option value="Bob">Bob</option>
+              <option value="Carol">Carol</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="new-desc">Description</label>
+            <textarea id="new-desc" rows="3" placeholder="Describe the issue..."></textarea>
+          </div>
+          <div class="modal-actions">
+            <button type="button" class="btn-secondary" id="create-cancel">Cancel</button>
+            <button type="submit" id="create-submit" class="btn-primary">Create</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Issue Detail Modal -->
+    <div id="detail-modal" class="dialog-overlay" hidden>
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="detail-modal-title">
+        <div class="modal-header">
+          <span id="detail-id" class="issue-key"></span>
+          <button class="modal-close" id="detail-close" aria-label="Close">&times;</button>
+        </div>
+        <div class="detail-badges">
+          <span id="detail-type" class="type-badge"></span>
+          <span id="detail-priority" class="priority-badge"></span>
+        </div>
+        <h3 id="detail-modal-title" class="detail-title"></h3>
+        <div class="detail-grid">
+          <div class="detail-field">
+            <span class="detail-label">Status</span>
+            <span id="detail-status" class="detail-value"></span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Assignee</span>
+            <span id="detail-assignee" class="detail-value"></span>
+          </div>
+        </div>
+        <div class="detail-field">
+          <span class="detail-label">Description</span>
+          <p id="detail-desc" class="detail-value detail-desc"></p>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="detail-close-btn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="confirm-modal" class="dialog-overlay" hidden>
+      <div class="modal confirm-modal" role="dialog" aria-modal="true" aria-labelledby="confirm-modal-title">
+        <h3 id="confirm-modal-title" class="confirm-title">Delete Issue?</h3>
+        <p id="confirm-message" class="confirm-message"></p>
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="confirm-cancel">Cancel</button>
+          <button type="button" class="btn-danger" id="confirm-delete">Delete</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
