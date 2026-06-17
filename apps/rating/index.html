@@ -17,8 +17,99 @@
       integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q"
       crossorigin="anonymous"
     />
+    <style>
+      .announcement-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1001;
+        background: #0d1117;
+        border-bottom: 1px solid #21262d;
+        color: #c9d1d9;
+        text-align: center;
+        padding: 11px 20px;
+        font-size: 0.88rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .announcement-bar .bar-text {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .announcement-bar .bar-badge {
+        background: linear-gradient(90deg, #fa8142, #ff9a56);
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        padding: 2px 8px;
+        border-radius: 20px;
+        white-space: nowrap;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+      }
+
+      .announcement-bar .bar-cta {
+        display: inline-block;
+        background: #fa8142;
+        color: #fff;
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+        padding: 5px 14px;
+        border-radius: 20px;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: background 0.15s, transform 0.15s;
+      }
+
+      .announcement-bar .bar-cta:hover {
+        background: #f96a1f;
+        transform: scale(1.04);
+      }
+
+      .topnav {
+        top: 44px !important;
+      }
+
+      main {
+        margin-top: calc(var(--nav-width) + 44px) !important;
+      }
+
+      @media (max-width: 600px) {
+        .announcement-bar {
+          font-size: 0.82rem;
+          padding: 10px 14px;
+          gap: 8px;
+        }
+
+        .topnav {
+          top: 64px !important;
+        }
+
+        main {
+          margin-top: calc(var(--nav-width) + 64px) !important;
+        }
+      }
+    </style>
   </head>
   <body>
+    <div class="announcement-bar">
+      <div class="bar-text">
+        <span class="bar-badge">New</span>
+        Chat with Claude Fable 5, GPT-5.5, Gemini 3.1 Pro & more — all in one place, one subscription.
+      </div>
+      <a class="bar-cta" href="https://www.izzedo.chat/?ref=marko" target="_blank" rel="noopener noreferrer">Try Izzedo Free →</a>
+    </div>
     <nav class="topnav" style="top: 0px">
       <div class="" style="padding: 0">
         <a href="/" class="item logo" style="opacity: 1">
