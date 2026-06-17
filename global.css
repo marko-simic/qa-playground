@@ -1019,6 +1019,12 @@ a.item {
   }
 }
 
+@media screen and (max-width: 480px) {
+  .logo h1 {
+    font-size: 1.25rem;
+  }
+}
+
 .item-text {
   transition: color 0.3s;
   flex-direction: row;
